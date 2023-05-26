@@ -1,0 +1,229 @@
+return (
+        <Container sx={{}}>
+            <AppBar >
+                <Toolbar sx={{display: 'flex', justifyContent: 'center', gap: theme.spacing(6), color: "primary.contrastText", backgroundColor: "background.default" }} >
+                    <Tabs value={value} onChange={handleChange} centered >
+                        <Tab label="Home" sx={{ color: "primary.contrastText" }} />
+                        <Tab label="About" sx={{ color: "primary.contrastText" }} />
+                        <Tab label="Skills" sx={{ color: "primary.contrastText" }} />
+                        <Tab label="Portfolio" sx={{ color: "primary.contrastText" }} />
+                        <Tab label="Contact" sx={{ color: "primary.contrastText" }} />
+                    </Tabs>
+                </Toolbar>
+            </AppBar>
+
+            <Box sx={{ display: "flex", mt: theme.spacing(8), m: theme.spacing(14, 0, 6, 0), }} >
+                <Box sx={{ display: "flex", justifyContent: "center", flexDirection: "column", width: "50%", alignItems: "center" }} >
+                    <Box sx={{ textAlign: "left", color: "primary.contrastText" }}>
+                        <Typography variant="h5" component="div" sx={{}} >Hello, I'm
+                        </Typography>
+                        <Typography variant="h3" component="div" sx={{}} >Henrique Lourenço
+                        </Typography>
+                        <Typography variant="h5" component="div" sx={{ color: "primary.main" }} >Web developer
+                        </Typography>
+                        <Box >
+                            <IconButton sx={{ color: "primary.contrastText" }} >
+                                <GitHubIcon />
+                            </IconButton>
+                            <IconButton sx={{ color: "primary.contrastText" }} >
+                                <LinkedInIcon />
+                            </IconButton>
+                        </Box>
+                    </Box>
+                </Box>
+                <Box sx={{ display: "flex", width: "50%", justifyContent: "center", transform: "scaleX(-1)" }}>
+                    <img src={computerSvg} width={350} />
+                </Box>
+            </Box>
+
+            <Box sx={{ display: "flex", m: theme.spacing(10, 0), }} >
+
+                <Box sx={{ display: "flex", width: "50%", justifyContent: "center" }}>
+                    <img src={coding2} width={350} />
+                </Box>
+
+                <Box sx={{ display: "flex", justifyContent: "center", flexDirection: "column", width: "50%", alignItems: "center" }} >
+                    <Box sx={{ textAlign: "left"}} >
+                        <Typography variant="h4" sx={{ color: "primary.contrastText",  }} >
+                            About me
+                        </Typography>
+                        <Typography variant="subtitle1" sx={{ color: "primary.main" }} >
+                            Hi, I will help you with your next project.
+                        </Typography>
+                        <Typography variant="body1" sx={{ color: "primary.contrastText" }} >
+                            My name is Henrique Lourenço, I live in Santos, Brazil. Currently I study programming to learn and increase my skills. I'm enthusiast of programming technologies. I think everything provided is fantastic. I like the lifelong learning style, I always want to improve and acquire knowledge.
+                        </Typography>
+                    </Box>
+                </Box>
+
+            </Box>
+
+            <Box sx={{ display: "flex",  m: theme.spacing(10, 0) }} >
+
+                <Box sx={{ display: "flex", justifyContent: "center", flexDirection: "column", alignItems: "center" }} >
+                    <Box sx={{ textAlign: "center"}} >
+                        <Grid container rowSpacing={4} columnSpacing={{ xs: 1, sm: 1, md: 4 }} sx={{ color: "primary.contrastText" }} >
+                            <Grid item xs={2} sx={{ }} >
+                                <SiReact size="3rem" />
+                                <Typography>React</Typography>
+                            </Grid>
+                            <Grid item xs={3} sx={{ }} >
+                                <SiTypescript size="3rem" />
+                                <Typography>TypeScript</Typography>
+                            </Grid>
+                            <Grid item xs={3} sx={{ }} >
+                                <SiJavascript size="3rem" />
+                                <Typography>JavaScript</Typography>
+                            </Grid>
+                            <Grid item xs={3} sx={{ }} >
+                                <SiGithub size="3rem" />
+                                <Typography>GitHub</Typography>
+                            </Grid>
+                            <Grid item xs={3} sx={{ }} >
+                                <SiGit size="3rem" />
+                                <Typography>Git</Typography>
+                            </Grid>
+                            <Grid item xs={3} sx={{ }} >
+                                <SiSass size="3rem" />
+                                <Typography>Sass</Typography>
+                            </Grid>
+                            <Grid item xs={3} sx={{ }} >
+                                <SiHtml5 size="3rem" />
+                                <Typography>HTML5</Typography>
+                            </Grid>
+                            <Grid item xs={3} sx={{ }} >
+                                <SiCss3 size="3rem" />
+                                <Typography>CSS3</Typography>
+                            </Grid>
+                            <Grid item xs={3} sx={{ }} >
+                                <SiStyledcomponents size="3rem" />
+                                <Typography>Styled Components</Typography>
+                            </Grid>
+                            <Grid item xs={3} sx={{ }} >
+                                <SiNextdotjs size="3rem" />
+                                <Typography>Next</Typography>
+                            </Grid>
+                            <Grid item xs={3} sx={{ }} >
+                                <SiMui size="3rem" />
+                                <Typography>Material UI</Typography>
+                            </Grid>
+                        </Grid>
+                    </Box>
+                </Box>
+            </Box>
+
+            <Box sx={{  m: theme.spacing(10, 0), display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }} >
+                <Typography variant="h4" sx={{ color: "primary.contrastText", mb: theme.spacing(2) }} >
+                    Portfolio
+                </Typography>
+                <Grid container rowSpacing={4} columnSpacing={2} >
+                    <Grid item xs={3}>
+                        <Card>
+                            <CardMedia sx={{ height: "6rem", backgroundColor: "gray" }} />
+                            <CardContent>
+                                <Typography variant="h5">
+                                    Tittle
+                                </Typography>
+                                <Typography variant="body2">
+                                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum repellendus mollitia explicabo.
+                                </Typography>
+                            </CardContent>
+                        </Card>
+                    </Grid>
+                    <Grid item xs={3}>
+                        <Card>
+                            <CardMedia sx={{ height: "6rem", backgroundColor: "gray" }} />
+                            <CardContent>
+                                <Typography variant="h5">
+                                    Tittle
+                                </Typography>
+                                <Typography variant="body2">
+                                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum repellendus mollitia explicabo.
+                                </Typography>
+                            </CardContent>
+                        </Card>
+                    </Grid>
+                    <Grid item xs={3}>
+                        <Card>
+                            <CardMedia sx={{ height: "6rem", backgroundColor: "gray" }} />
+                            <CardContent>
+                                <Typography variant="h5">
+                                    Tittle
+                                </Typography>
+                                <Typography variant="body2">
+                                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum repellendus mollitia explicabo.
+                                </Typography>
+                            </CardContent>
+                        </Card>
+                    </Grid>
+                    <Grid item xs={3}>
+                        <Card>
+                            <CardMedia sx={{ height: "6rem", backgroundColor: "gray" }} />
+                            <CardContent>
+                                <Typography variant="h5">
+                                    Tittle
+                                </Typography>
+                                <Typography variant="body2">
+                                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum repellendus mollitia explicabo.
+                                </Typography>
+                            </CardContent>
+                        </Card>
+                    </Grid>
+                    <Grid item xs={3}>
+                        <Card>
+                            <CardMedia sx={{ height: "6rem", backgroundColor: "gray" }} />
+                            <CardContent>
+                                <Typography variant="h5">
+                                    Tittle
+                                </Typography>
+                                <Typography variant="body2">
+                                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum repellendus mollitia explicabo.
+                                </Typography>
+                            </CardContent>
+                        </Card>
+                    </Grid>
+                    <Grid item xs={3}>
+                        <Card>
+                            <CardMedia sx={{ height: "6rem", backgroundColor: "gray" }} />
+                            <CardContent>
+                                <Typography variant="h5">
+                                    Tittle
+                                </Typography>
+                                <Typography variant="body2">
+                                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum repellendus mollitia explicabo.
+                                </Typography>
+                            </CardContent>
+                        </Card>
+                    </Grid>
+                    <Grid item xs={3}>
+                        <Card>
+                            <CardMedia sx={{ height: "6rem", backgroundColor: "gray" }} />
+                            <CardContent>
+                                <Typography variant="h5">
+                                    Tittle
+                                </Typography>
+                                <Typography variant="body2">
+                                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum repellendus mollitia explicabo.
+                                </Typography>
+                            </CardContent>
+                        </Card>
+                    </Grid>
+                    <Grid item xs={3}>
+                        <Card>
+                            <CardMedia sx={{ height: "6rem", backgroundColor: "gray" }} />
+                            <CardContent>
+                                <Typography variant="h5">
+                                    Tittle
+                                </Typography>
+                                <Typography variant="body2">
+                                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum repellendus mollitia explicabo.
+                                </Typography>
+                            </CardContent>
+                        </Card>
+                    </Grid>
+                </Grid>
+            </Box>    
+
+        </Container>
+    )
+}
