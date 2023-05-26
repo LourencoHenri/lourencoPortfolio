@@ -1,7 +1,6 @@
 import { styled } from "@mui/material";
 
-import { AppBar, Box, Button, Container, Grid, Stack, Toolbar, Typography, Card } from "@mui/material";
-import { theme } from "./types/theme";
+import { Box, Toolbar, Typography, Card } from "@mui/material";
 
 export const NavBar = styled(Toolbar)(({theme}) => ({
     backgroundColor: theme.palette.background.default,
@@ -14,7 +13,7 @@ export const NavBar = styled(Toolbar)(({theme}) => ({
     }
 }))
 
-export const Logo = styled(Typography)(({theme}) => ({
+export const Logo = styled(Typography)(() => ({
     
 }))
 
@@ -83,7 +82,7 @@ export const SkillCard = styled("a")(({theme}) => ({
     },
 }))
 
-export const Portfolio = styled(Box)(({theme}) => ({
+export const Portfolio = styled(Box)(() => ({
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",

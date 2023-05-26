@@ -4,9 +4,9 @@ import { theme } from "./types/theme";
 import logo from "../public/logo.svg";
 import computer from "../src/assets/computer.gif"
 import developer from "../src/assets/developer.gif"
-// import english from "../src/assets/englishIcon.png"
-// import spanish from "../src/assets/spanishIcon.png"
-import portuguese from "../src/assets/portugueseIcon.png"
+import english from "../src/assets/englishIcon.png"
+//import spanish from "../src/assets/spanishIcon.png"
+//import portuguese from "../src/assets/portugueseIcon.png"
 
 
 import Tabs from '@mui/material/Tabs';
@@ -45,7 +45,7 @@ export function Home() {
         {
             id: 1,
             name: "Coffee Shop",
-            description: "Sistema de vendas de uma cafeteria. Permite o controle de pedidos, proporcionando uma solução eficiente para a operação e administração.",
+            description: "Sales system of a cafeteria. Allows for order control, providing an efficient solution for operation and administration.",
             gitHubUrl: "https://github.com/LourencoHenri/coffeeShop",
             siteUrl: "https://github.com/LourencoHenri/coffeeShop",
             image: "https://img.freepik.com/fotos-gratis/fundo-de-armazenamento-em-nuvem-remixado-do-dominio-publico-pela-nasa_53876-104240.jpg?w=1390&t=st=1684722928~exp=1684723528~hmac=65d58cea32c3485f3fb2a0c59247290c29e6318a1945851dd8b8739441750006",
@@ -53,7 +53,7 @@ export function Home() {
         {
             id: 2,
             name: "Pomodoro Timer",
-            description: "Aplicativo de temporizador Pomodoro que auxilia na gestão do tempo e aumento da produtividade, seguindo a técnica Pomodoro de trabalho e pausa.",
+            description: "Pomodoro Timer application that assists in time management and productivity enhancement, following the Pomodoro technique of work and break cycles.",
             gitHubUrl: "https://github.com/LourencoHenri/pomodoroTimer",
             siteUrl: "https://github.com/LourencoHenri/pomodoroTimer",
             image: "https://img.freepik.com/vetores-gratis/fundo-de-tecnologia-de-rede-5g-com-linha-digital-azul_53876-119505.jpg?size=626&ext=jpg&ga=GA1.1.1049139390.1684335736&semt=sph",
@@ -61,7 +61,7 @@ export function Home() {
         {
             id: 3,
             name: "Feed",
-            description: "Implementa um sistema de feed, permitindo a exibição e compartilhamento de conteúdos, como posts e comentários, de forma organizada e interativa.",
+            description: "Implements a feed system, allowing the display and sharing of content such as posts and comments in an organized and interactive manner.",
             gitHubUrl: "https://github.com/LourencoHenri/feed",
             siteUrl: "https://github.com/LourencoHenri/feed",
             image: "https://img.freepik.com/fotos-gratis/computador-laptop-cinza-ligado_400718-47.jpg?w=1390&t=st=1684722782~exp=1684723382~hmac=a272128d1cea39a87a6a828d5adf4a3e423341028b2b972dd6d30cef041da769",
@@ -69,7 +69,7 @@ export function Home() {
         {
             id: 4,
             name: "ToDo List",
-            description: "Aplicação de lista de tarefas, permitindo ao usuário criar, organizar e gerenciar suas tarefas de forma eficiente e prática.",
+            description: "Task list application, allowing users to create, organize, and manage their tasks efficiently and conveniently.",
             gitHubUrl: "https://github.com/LourencoHenri/toDoList",
             siteUrl: "https://github.com/LourencoHenri/toDoList",
             image: "https://img.freepik.com/fotos-gratis/fundo-de-programacao-com-html_23-2150038863.jpg?size=626&ext=jpg&ga=GA1.2.1049139390.1684335736&semt=sph",
@@ -77,7 +77,7 @@ export function Home() {
         {
             id: 5,
             name: "Shop",
-            description: "O projeto abrange desde a interface do usuário até o processamento de pedidos e pagamentos, oferecendo uma solução completa para a experiência de compra online.",
+            description: "The project encompasses everything from the user interface to order processing and payments, providing a comprehensive solution for the online shopping experience.",
             gitHubUrl: "https://github.com/LourencoHenri/Shop",
             siteUrl: "https://github.com/LourencoHenri/Shop",
             image: "https://img.freepik.com/fotos-gratis/plano-de-fundo-de-programacao-com-pessoa-trabalhando-com-codigos-no-computador_23-2150010125.jpg?w=1390&t=st=1684722821~exp=1684723421~hmac=4fbedd7d45fc5efd3d695757896b8da9538913d8ad67878f02532085a12fca68",
@@ -85,7 +85,7 @@ export function Home() {
         {
             id: 6,
             name: "Calculator",
-            description: "O projeto oferece uma interface intuitiva e prática para realização de operações básicas e complexas, contendo o modo padrão e cientifico.",
+            description: "The project offers an intuitive and user-friendly interface for performing both basic and complex operations, including standard and scientific modes.",
             gitHubUrl: "https://github.com/LourencoHenri/calculator",
             siteUrl: "https://github.com/LourencoHenri/calculator",
             image: "https://img.freepik.com/fotos-gratis/programador-profissional-trabalhando-ate-tarde-no-escritorio-escuro_1098-18705.jpg?w=1390&t=st=1684722836~exp=1684723436~hmac=c3d5dbb990c23f0116b61052573978690abd97b7430deb83b04bef66b092b5a7",
@@ -95,6 +95,7 @@ export function Home() {
     const [navValue, setNavValue] = React.useState("Home");
 
     const handleNavChange = (event: React.SyntheticEvent, newNavValue: string) => {
+        console.log(event)
         setNavValue(newNavValue);
     };
 
@@ -102,12 +103,11 @@ export function Home() {
         setNavValue(tab)
     }
 
-    const StyledTab = forwardRef((props, ref) => (
+    const StyledTab = forwardRef((props : any ) => (
         <Link to={props.to} spy={true} smooth={false} onSetActive={scrollHandleChangeTab} {...props}>
-          <Typography>{ props.to }</Typography>
+          <Typography>{ props.to}</Typography>
         </Link>
       ));
-
 
     return (
         <Container id="Container" >
@@ -117,14 +117,14 @@ export function Home() {
                         <img src={logo} alt="" />
                     </Logo>
                     <Tabs value={navValue} onChange={handleNavChange} centered >
-                        <Tab value="Home" sx={{ color: "primary.contrastText" }}  component={(props) => <StyledTab to={"Home"} {...props}/>}/>
-                        <Tab value="About" sx={{ color: "primary.contrastText" }} color="primary.contrastText" component={(props) => <StyledTab to={"About"} {...props}/>}/>
+                    <Tab value="Home" sx={{ color: "primary.contrastText" }}  component={(props) => <StyledTab to={"Home"} {...props}/>}/>
+                        <Tab value="About" sx={{ color: "primary.contrastText" }} component={(props) => <StyledTab to={"About"} {...props}/>}/>
                         <Tab value="Skills" sx={{ color: "primary.contrastText" }} component={(props) => <StyledTab to={"Skills"} {...props}/>}/>
                         <Tab value="Portfolio" sx={{ color: "primary.contrastText" }} component={(props) => <StyledTab to={"Portfolio"} {...props}/>}/>
                         <Tab value="Contact" sx={{ color: "primary.contrastText" }} component={(props) => <StyledTab to={"Contact"} {...props}/>}/>
                     </Tabs>
                     <IconButton>
-                        <img src={portuguese} alt="" />
+                        <img src={english} alt="" />
                     </IconButton>
                 </NavBar>
             </AppBar>
