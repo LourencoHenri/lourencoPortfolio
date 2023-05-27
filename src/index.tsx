@@ -1,4 +1,4 @@
-import { AppBar, Box, Button, Container, Grid, Menu, MenuItem, Typography  } from "@mui/material";
+import { AppBar, Box, Button, Container, Grid, Menu, MenuItem, Typography, Drawer  } from "@mui/material";
 import { theme } from "./types/theme";
 
 import logo from "../public/logo.svg";
@@ -24,7 +24,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 
 import { SiTypescript, SiReact, SiJavascript, SiHtml5, SiCss3, SiGithub, SiGit, SiStyledcomponents, SiSass, SiNextdotjs, SiMui, SiBootstrap, SiTailwindcss, SiFigma } from 'react-icons/si';
 
-import React, { forwardRef, useEffect } from "react";
+import React, { forwardRef, useEffect, useState } from "react";
 
 import { Link, Element } from 'react-scroll'
 
@@ -97,13 +97,12 @@ export function Home() {
 
     const [navValue, setNavValue] = React.useState("Home");
     const [languageMenuIsOpen, setLanguageMenuIsOpen] = React.useState<null | HTMLElement>(null);
-    const open = Boolean(languageMenuIsOpen);
-
+    const [drawerState, setDrawerState] = React.useState(false)
+    const openLanguageMenu = Boolean(languageMenuIsOpen);
 
     const handleNavChange = (event: React.SyntheticEvent, newNavValue: string) => {
         console.log(event)
         setNavValue(newNavValue);
-
     };
 
     const scrollHandleChangeTab = (tab: string) => {
@@ -124,6 +123,10 @@ export function Home() {
     const handleCloseLanguageMenu = () => {
         setLanguageMenuIsOpen(null);
     };
+
+    function toggleNavDrawer() {
+        setDrawerState(true)
+    }
 
     function handleChangeLanguage( language: string) {
         i18n.changeLanguage(language);
@@ -164,7 +167,7 @@ export function Home() {
                         <Menu
                             id="languageMenu"
                             anchorEl={languageMenuIsOpen}
-                            open={open}
+                            open={openLanguageMenu}
                             onClose={handleCloseLanguageMenu}
                             sx={{ "div:nth-child(3)": { backgroundColor: theme.palette.secondary.light } }}
                         >
@@ -184,7 +187,7 @@ export function Home() {
                                     <img src={portuguese} alt="" />
                                 </IconButton>
                             </MenuItem>
-                        </Menu>                        
+                        </Menu>                 
                         
                     </NavBar>
 
@@ -193,14 +196,24 @@ export function Home() {
                         <Logo>
                             <img src={logo} alt="" />
                         </Logo>
+
                         <Box>
-                            <IconButton>
-                                <img src={english} alt="" />
+                            <IconButton id="languageMenu" onClick={handleOpenLanguageMenu} >
+                                <img src={english} alt=""  />
                             </IconButton>
-                            <IconButton sx={{ color: theme.palette.primary.contrastText }} >
+                            <IconButton id="navMenu" onClick={toggleNavDrawer} sx={{ color: theme.palette.primary.contrastText }} >
                                 <MenuIcon />
                             </IconButton>
                         </Box>
+
+                        <Drawer
+                            anchor="right"
+                            open={drawerState}
+                            onClose={() => setDrawerState(false)}
+                        >
+                            fsfsd
+                        </Drawer>
+
                     </MobileNavBar>
 
                 </AppBar>

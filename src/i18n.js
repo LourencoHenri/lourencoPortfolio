@@ -37,6 +37,10 @@ const resources = {
       "Calculator Description": "The project offers an intuitive and user-friendly interface for performing both basic and complex operations, including standard and scientific modes.",
       "Contact": "Contact",
       "Contact me": "Contact me",
+    //   "descriptions": { 
+    //     coffeeShop: "The project offers an intuitive and user-friendly interface for performing both basic and",
+
+    //    }
     }
   },
   es: {
@@ -105,7 +109,7 @@ const resources = {
         "Shop Description": "O projeto abrange desde a interface do usuário até o processamento de pedidos e pagamentos, proporcionando uma solução abrangente para a experiência de compra online.",
         "Calculator Description": "O projeto oferece uma interface intuitiva e fácil de usar para realizar operações básicas e complexas, incluindo modos padrão e científico.",
         "Contact": "Contato",
-        "Contact me": "Me contate"
+        "Contact me": "Entre em contato comigo"
     }
   }
 };
