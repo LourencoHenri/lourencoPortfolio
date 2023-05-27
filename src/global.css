@@ -8,6 +8,7 @@ body::-webkit-scrollbar {
   
   body::-webkit-scrollbar-track {   
     background-color: #0F0F0F;     /* color of the tracking area */
+
   }
   
   body::-webkit-scrollbar-thumb {
@@ -18,4 +19,14 @@ body::-webkit-scrollbar {
 
 .active {
     color: #FFAB00 !important;
+}
+
+@media (max-width: 576px ) {
+  img {
+    width: 85%;
   }
+
+  * {
+    font-size: 95%;
+  }
+}

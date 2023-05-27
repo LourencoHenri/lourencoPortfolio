@@ -1,6 +1,8 @@
 import { styled } from "@mui/material";
 
-import { Box, Toolbar, Typography, Card } from "@mui/material";
+import { Box, Toolbar, Typography, Card, Grid } from "@mui/material";
+
+import { mediaQuery as mq } from "./constants";
 
 export const NavBar = styled(Toolbar)(({theme}) => ({
     backgroundColor: theme.palette.background.default,
@@ -10,6 +12,25 @@ export const NavBar = styled(Toolbar)(({theme}) => ({
 
     "a": {
         color: theme.palette.primary.contrastText,
+    },
+
+    [mq[0]]: {
+        display: "none",
+    }
+}))
+
+export const MobileNavBar = styled(Toolbar)(({theme}) => ({
+    backgroundColor: theme.palette.background.default,
+    opacity: 0.97,
+    display: "flex",
+    justifyContent: "space-between",
+
+    "a": {
+        color: theme.palette.primary.contrastText,
+    },
+
+    "@media (min-width: 576px)": {
+        display: "none",
     }
 }))
 
@@ -23,6 +44,17 @@ export const MainContent = styled(Box)(({theme}) => ({
     justifyContent: "space-between",
     height: "95vh",
     color: theme.palette.primary.contrastText,
+
+    [mq[0]]: {
+        flexDirection: "column",
+        justifyContent: "center",
+        height: "100vh",
+
+        ">div:last-child": {
+            textAlign: "center",
+
+        }
+    }
 }))
 
 export const AboutMe = styled(Box)(({theme}) => ({
@@ -41,6 +73,15 @@ export const AboutMe = styled(Box)(({theme}) => ({
             textAlign: "center",
         },
     },
+
+    [mq[0]]: {
+        flexDirection: "column",
+
+        "img": {
+            display: "none",
+        }
+
+    }
 }))
 
 export const Skills = styled(Box)(({theme}) => ({
@@ -55,9 +96,20 @@ export const Skills = styled(Box)(({theme}) => ({
         color: theme.palette.primary.contrastText,
         display: "flex",
         justifyContent: "space-between",
-        gap: "2rem",
+        gap: theme.spacing(4),
         marginBottom: theme.spacing(6),
         marginTop: theme.spacing(2),
+    },
+
+    [mq[0]]: {
+
+        "div": {
+            flexWrap: "wrap",
+            justifyContent: "center",
+            gap: theme.spacing(2),
+            marginBottom: theme.spacing(4),
+            marginTop: theme.spacing(1),
+        }
     }
 }))
 
@@ -80,6 +132,10 @@ export const SkillCard = styled("a")(({theme}) => ({
         marginTop: theme.spacing(1),
         textAlign: "center",
     },
+
+    [mq[0]]: {
+        width: theme.spacing(8),
+    }
 }))
 
 export const Portfolio = styled(Box)(() => ({
@@ -88,6 +144,14 @@ export const Portfolio = styled(Box)(() => ({
     justifyContent: "center",
     alignItems: "center",
     color: "white",
+}))
+
+export const PortfolioGrid = styled(Grid)(({theme}) => ({
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "flex-end",
+    backgroundColor: theme.palette.secondary.light,
 }))
 
 export const ProjectCard = styled(Card)(({theme}) => ({
@@ -100,8 +164,22 @@ export const ProjectCard = styled(Card)(({theme}) => ({
 
 export const Contact = styled(Box)(({theme}) => ({
     color: theme.palette.primary.contrastText,
-    marginTop: theme.spacing(16),
+    paddingTop: theme.spacing(16),
     marginBottom: theme.spacing(26),
+
+    [mq[0]]: {
+        
+        ">div": {
+            flexDirection: "column-reverse",
+            alignItems: "center",
+            gap: theme.spacing(10),
+
+            "div": {
+                alignItems: "center",
+                textAlign: "center",
+            }
+        }
+    }
 }))
 
 export const ContactContent = styled("a")(({theme}) => ({

@@ -4,6 +4,7 @@ import { App } from './App.tsx'
 
 import {CssBaseline, ThemeProvider} from "@mui/material";
 import { theme } from './types/theme.ts';
+import './i18n';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
