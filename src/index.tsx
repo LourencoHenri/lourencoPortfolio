@@ -1,4 +1,4 @@
-import { AppBar, Box, Button, Container, Grid, Menu, MenuItem, Typography, Drawer  } from "@mui/material";
+import { AppBar, Box, Button, Container, Grid, Menu, MenuItem, Typography, Drawer, List, ListItem, Divider  } from "@mui/material";
 import { theme } from "./types/theme";
 
 import logo from "../public/logo.svg";
@@ -8,6 +8,7 @@ import english from "../src/assets/englishIcon.png"
 import spanish from "../src/assets/spanishIcon.png"
 import portuguese from "../src/assets/portugueseIcon.png"
 
+import curriculumHenriqueLourenco from "../src/assets/curriculumHenriqueLourenco.pdf"
 
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
@@ -21,14 +22,16 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import EmailIcon from '@mui/icons-material/Email';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import MenuIcon from '@mui/icons-material/Menu';
+import CloseIcon from '@mui/icons-material/Close';
+import PhoneIcon from '@mui/icons-material/Phone';
 
 import { SiTypescript, SiReact, SiJavascript, SiHtml5, SiCss3, SiGithub, SiGit, SiStyledcomponents, SiSass, SiNextdotjs, SiMui, SiBootstrap, SiTailwindcss, SiFigma } from 'react-icons/si';
 
-import React, { forwardRef, useEffect, useState } from "react";
+import React, { forwardRef, useEffect } from "react";
 
 import { Link, Element } from 'react-scroll'
 
-import { Logo, NavBar, MainContent, AboutMe, Skills, SkillCard, Portfolio, ProjectCard, Contact, ContactContent, Footer, MobileNavBar } from "./styles";
+import { Logo, NavBar, MainContent, AboutMe, Skills, SkillCard, Portfolio, ProjectCard, Contact, ContactContent, Footer, MobileNavBar, SkillTitle, AboutMeText, MobilePortfolio } from "./styles";
 
 import { useTranslation } from "react-i18next";
 
@@ -39,6 +42,12 @@ interface PortfolioProps {
     description: string,
     gitHubUrl: string,
     siteUrl: string,
+    image: string,
+}
+
+interface LanguagesProps {
+    id: string,
+    name: string,
     image: string,
 }
 
@@ -95,9 +104,28 @@ export function Home() {
         },
     ]
 
+    const languages : LanguagesProps[] = [
+        {
+            id: "en-US",
+            name: "english",
+            image: english,
+        },
+        {
+            id: "es-ES",
+            name: "spanish",
+            image: spanish,
+        },
+        {
+            id: "pt-BR",
+            name: "portuguese",
+            image: portuguese,
+        },
+    ]
+
     const [navValue, setNavValue] = React.useState("Home");
     const [languageMenuIsOpen, setLanguageMenuIsOpen] = React.useState<null | HTMLElement>(null);
     const [drawerState, setDrawerState] = React.useState(false)
+    const [currentLanguage, setCurrentLanguage] = React.useState<null | string>("en-US")
     const openLanguageMenu = Boolean(languageMenuIsOpen);
 
     const handleNavChange = (event: React.SyntheticEvent, newNavValue: string) => {
@@ -131,18 +159,19 @@ export function Home() {
     function handleChangeLanguage( language: string) {
         i18n.changeLanguage(language);
         localStorage.setItem("language", language);
+        setCurrentLanguage(language);
+        setLanguageMenuIsOpen(null);
     }
     
-    useEffect(() => {
-        localStorage.getItem("language")
-        
+    useEffect(() => {        
         const storageLanguage = localStorage.getItem("language")
 
-        if (storageLanguage ? i18n.changeLanguage(storageLanguage) : null ) {
-            
-        }
+        storageLanguage ? i18n.changeLanguage(storageLanguage) : i18n.changeLanguage("en-US")
+        storageLanguage ? setCurrentLanguage(storageLanguage) : setCurrentLanguage("en-US")
 
     }, [])
+
+    const languagesWithoutCurrentLanguage = languages.filter(a => a.id !== currentLanguage )
 
     return (
         <>
@@ -153,7 +182,7 @@ export function Home() {
                             <img src={logo} alt="" />
                         </Logo>
                         <Tabs value={navValue} onChange={handleNavChange} centered >
-                            <Tab value="Home" sx={{ color: "primary.contrastText" }}  component={(props) => <StyledTab to="Home" tabName={t("Home")} {...props}/>}/>
+                            <Tab value="Home" sx={{ color: "primary.contrastText" }} component={(props) => <StyledTab to="Home" tabName={t("Home")} {...props}/>}/>
                             <Tab value="About" sx={{ color: "primary.contrastText" }} component={(props) => <StyledTab to="About" tabName={t("About")} {...props}/>}/>
                             <Tab value="Skills" sx={{ color: "primary.contrastText" }} component={(props) => <StyledTab to="Skills" tabName={t("Skills")} {...props}/>}/>
                             <Tab value="Portfolio" sx={{ color: "primary.contrastText" }} component={(props) => <StyledTab to="Portfolio" tabName={t("Portfolio")} {...props}/>}/>
@@ -161,7 +190,7 @@ export function Home() {
                         </Tabs>
 
                         <IconButton id="languageMenu" onClick={handleOpenLanguageMenu} >
-                            <img src={portuguese} alt="" />
+                            { currentLanguage === "en-US" ? <img src={english} alt="" /> : ( currentLanguage === "pt-BR" ? <img src={portuguese} alt="" /> : <img src={spanish} alt="" />) }
                         </IconButton>
 
                         <Menu
@@ -171,22 +200,14 @@ export function Home() {
                             onClose={handleCloseLanguageMenu}
                             sx={{ "div:nth-child(3)": { backgroundColor: theme.palette.secondary.light } }}
                         >
+                            {languagesWithoutCurrentLanguage.map((language) => (
+                                <MenuItem key={language.id} sx={{ padding: theme.spacing(0) }} >
+                                    <IconButton sx={{ }} onClick={() => handleChangeLanguage(language.id)} >
+                                        <img src={language.image} alt="" />
+                                    </IconButton>
+                                </MenuItem>
+                            ))}
 
-                            <MenuItem sx={{ padding: theme.spacing(0) }} >
-                                <IconButton sx={{ }} onClick={() => handleChangeLanguage("en-US")} >
-                                    <img src={english} alt="" />
-                                </IconButton>
-                            </MenuItem>
-                            <MenuItem sx={{ padding: theme.spacing(0) }}>
-                                <IconButton onClick={() => handleChangeLanguage("es-ES")} >
-                                    <img src={spanish} alt="" />
-                                </IconButton>
-                            </MenuItem>
-                            <MenuItem sx={{ padding: theme.spacing(0) }}>
-                                <IconButton onClick={() => handleChangeLanguage("pt-BR")} >
-                                    <img src={portuguese} alt="" />
-                                </IconButton>
-                            </MenuItem>
                         </Menu>                 
                         
                     </NavBar>
@@ -210,8 +231,23 @@ export function Home() {
                             anchor="right"
                             open={drawerState}
                             onClose={() => setDrawerState(false)}
+                            sx={{ "div:nth-child(3)": { backgroundColor: theme.palette.secondary.main } }}
                         >
-                            fsfsd
+                            <List sx={{ pt: "0"  }} >
+                                <ListItem sx={{ justifyContent: "flex-end" }}>
+                                    <IconButton onClick={() => setDrawerState(false)} sx={{ color: theme.palette.secondary.contrastText }}>
+                                        <CloseIcon sx={{ }}/>
+                                    </IconButton>
+                                </ListItem>
+                                <Divider sx={{ borderColor: theme.palette.secondary.light }} />
+                                <Tabs value={navValue} onChange={handleNavChange} centered orientation="vertical" >
+                                    <Tab value="Home" sx={{ color: "primary.contrastText", justifyContent: "flex-end" }}  component={(props) => <StyledTab to="Home" tabName={t("Home")} {...props}/>}/>
+                                    <Tab value="About" sx={{ color: "primary.contrastText", justifyContent: "flex-end" }} component={(props) => <StyledTab to="About" tabName={t("About")} {...props}/>}/>
+                                    <Tab value="Skills" sx={{ color: "primary.contrastText", justifyContent: "flex-end" }} component={(props) => <StyledTab to="Skills" tabName={t("Skills")} {...props}/>}/>
+                                    <Tab value="Portfolio" sx={{ color: "primary.contrastText", justifyContent: "flex-end" }} component={(props) => <StyledTab to="Portfolio" tabName={t("Portfolio")} {...props}/>}/>
+                                    <Tab value="Contact" sx={{ color: "primary.contrastText", justifyContent: "flex-end" }} component={(props) => <StyledTab to="Contact" tabName={t("Contact")} {...props}/>}/>
+                                </Tabs>
+                            </List>
                         </Drawer>
 
                     </MobileNavBar>
@@ -231,10 +267,10 @@ export function Home() {
                             <Typography variant="h6" sx={{ }} >{t("Web Developer")}</Typography>
                             <Box>
                                 <IconButton href="https://www.linkedin.com/in/henrique-lourenco/" target="_blank"  aria-label="Linkedin" sx={{ color: "primary.main" }} >
-                                    <LinkedInIcon />
+                                    <LinkedInIcon sx={{ fontSize: theme.spacing(4) }} />
                                 </IconButton>
                                 <IconButton href="https://github.com/" target="_blank"  aria-label="GitHub" sx={{ color: "primary.main" }} >
-                                    <GitHubIcon />
+                                    <GitHubIcon sx={{ fontSize: theme.spacing(4) }} />
                                 </IconButton>
                             </Box>
                         </Box>
@@ -251,14 +287,14 @@ export function Home() {
                         </Box>
 
                         <Box>
-                            <Typography variant="h4" sx={{ color: "primary.contrastText", fontWeight: "bold" , span: { color: "primary.main" } }} >
+                            <Typography variant="h4" sx={{ color: "primary.contrastText", fontWeight: "bold" , span: { color: "primary.main", fontSize: "2rem" } }} >
                                 {t("About")} <span>{t("me")}</span>
                             </Typography>
-                            <Typography variant="body1" component={"span"} sx={{ lineHeight: 2 }} >
+                            <AboutMeText variant="body1" sx={{ }} >
                                 {t("About me")}
-                            </Typography>
+                            </AboutMeText>
                             <Box sx={{ display: "flex", alignItems: "end", justifyContent: "flex-end", width: "100%" }} >
-                                <Button variant="outlined" size="small" startIcon={ <DownloadIcon/> } >
+                                <Button href={curriculumHenriqueLourenco} download variant="outlined" size="small" startIcon={ <DownloadIcon/> } >
                                     {t("Download CV")}
                                 </Button>
                             </Box>
@@ -278,15 +314,15 @@ export function Home() {
                         <Box>
                             <SkillCard>
                                 <SiReact size={48} />
-                                <span>
+                                <SkillTitle>
                                     React
-                                </span>
+                                </SkillTitle>
                             </SkillCard>
                             <SkillCard>
                                 <SiNextdotjs size={48} />
-                                <span>
+                                <SkillTitle>
                                     Next
-                                </span>
+                                </SkillTitle>
                             </SkillCard>
                         </Box>                
 
@@ -296,21 +332,21 @@ export function Home() {
                         <Box>
                             <SkillCard>
                                 <SiGithub size={48} />
-                                <span>
+                                <SkillTitle>
                                     GitHub
-                                </span>
+                                </SkillTitle>
                             </SkillCard>
                             <SkillCard>
                                 <SiGit size={48} />
-                                <span>
+                                <SkillTitle>
                                     Git
-                                </span>
+                                </SkillTitle>
                             </SkillCard>
                             <SkillCard>
                                 <SiFigma size={48} />
-                                <span>
+                                <SkillTitle>
                                     Figma
-                                </span>
+                                </SkillTitle>
                             </SkillCard>
                         </Box>
 
@@ -320,27 +356,27 @@ export function Home() {
                         <Box>
                             <SkillCard>
                                 <SiMui size={48} />
-                                <span>
+                                <SkillTitle>
                                     MUI
-                                </span>
+                                </SkillTitle>
                             </SkillCard>
                             <SkillCard>
                                 <SiBootstrap size={48} />
-                                <span>
+                                <SkillTitle>
                                     Bootstrap
-                                </span>
+                                </SkillTitle>
                             </SkillCard>
                             <SkillCard>
                                 <SiStyledcomponents size={48} />
-                                <span>
+                                <SkillTitle>
                                     Styled Components
-                                </span>
+                                </SkillTitle>
                             </SkillCard>
                             <SkillCard>
                                 <SiTailwindcss size={48} />
-                                <span>
+                                <SkillTitle>
                                     Tailwind
-                                </span>
+                                </SkillTitle>
                             </SkillCard>
                         </Box>
 
@@ -350,33 +386,33 @@ export function Home() {
                         <Box>
                             <SkillCard>
                                 <SiTypescript size={48} />
-                                <span>
+                                <SkillTitle>
                                     TypesScript
-                                </span>
+                                </SkillTitle>
                             </SkillCard>
                             <SkillCard>
                                 <SiJavascript size={48} />
-                                <span>
+                                <SkillTitle>
                                     JavaScript
-                                </span>
+                                </SkillTitle>
                             </SkillCard>
                             <SkillCard>
                                 <SiHtml5 size={48} />
-                                <span>
+                                <SkillTitle>
                                     HTML5
-                                </span>
+                                </SkillTitle>
                             </SkillCard>
                             <SkillCard>
                                 <SiCss3 size={48} />
-                                <span>
+                                <SkillTitle>
                                     CSS3
-                                </span>
+                                </SkillTitle>
                             </SkillCard>
                             <SkillCard>
                                 <SiSass size={48} />
-                                <span>
+                                <SkillTitle>
                                     Sass
-                                </span>
+                                </SkillTitle>
                             </SkillCard>
                         </Box>
 
@@ -384,6 +420,7 @@ export function Home() {
                 </Element>
 
                 <Element name="Portfolio" id="Portfolio">
+
                     <Portfolio sx={{ paddingTop: theme.spacing(10) }} >
 
                         <Typography variant="h4" sx={{ color: "primary.contrastText", fontWeight: "bold" , mb: theme.spacing(2) , span: { color: "primary.main" } }} >
@@ -391,7 +428,7 @@ export function Home() {
                         </Typography>
 
                         <Typography variant="subtitle1" sx={{ span: { color: "primary.main" }, width: "50%", textAlign: "center"}}  >
-                            
+                            {t("Press")}
                             <span> {t("Access")} </span>
                             {t("to visit the project page or the")}
                             <span> {t("GitHub icon")} </span>
@@ -430,11 +467,59 @@ export function Home() {
                         </Grid>
 
                     </Portfolio>
+
+                    <MobilePortfolio sx={{ paddingTop: theme.spacing(10) }} >
+
+                        <Typography variant="h4" sx={{ color: "primary.contrastText", fontWeight: "bold" , mb: theme.spacing(2) , span: { color: "primary.main" } }} >
+                            {t("Portfolio")}
+                        </Typography>
+
+                        <Typography variant="subtitle1" sx={{ span: { color: "primary.main" }, width: "50%", textAlign: "center"}}  >
+                            {t("Press")}
+                            <span> {t("Access")} </span>
+                            {t("to visit the project page or the")}
+                            <span> {t("GitHub icon")} </span>
+                            {t("to access the project in my repository")}
+                        </Typography>
+
+                        <Grid container spacing={3} sx={{ marginTop: theme.spacing(0) }}  >
+
+                            {portfolio.map((project) => (
+                            <Grid item xs={6} key={project.id} >
+                                <ProjectCard sx={{  }}>
+                                    <CardMedia
+                                        component="img"
+                                        sx={{ height: 150 }}
+                                        image={project.image}
+                                        title={project.name}
+                                    />
+                                    <CardContent sx={{ height: theme.spacing(22) }} >
+                                        <Typography gutterBottom variant="h5" color="primary.contrastText" sx={{ }} >
+                                            {project.name}
+                                        </Typography>
+                                        <Typography variant="body2" color="primary.contrastText" sx={{ overflow: "auto", height: "80%" }} >
+                                            {t((`${project.name} Description`))}
+                                        </Typography>
+                                    </CardContent>
+                                    <CardActions sx={{ display: "flex", justifyContent: "space-between", width: "100%", marginTop: theme.spacing(2) }} >
+                                        <Button href={project.siteUrl} target="_blank" size="small" sx={{ color: "primary.contrastText", "&:hover": { color: "primary.main" } }} >{t("Access")}</Button>
+                                        <IconButton href={project.siteUrl} target="_blank" sx={{ color: "primary.contrastText", transition: "0.4s", "&:hover": { color: "primary.main" } }} >
+                                            <SiGithub />
+                                        </IconButton>
+                                    </CardActions>
+                                </ProjectCard>
+                            </Grid>
+                        ))}
+
+                        </Grid>
+
+                    </MobilePortfolio>
+
                 </Element>
 
                 <Element name="Contact" id="Contact">
                     <Contact >
-                        <Typography  variant="h4" sx={{ color: "primary.contrastText", fontWeight: "bold", marginBottom: theme.spacing(10), display: "flex", justifyContent: "center"}} >
+                        <Typography  variant="h4" sx={{ color: "primary.contrastText", fontWeight: "bold", display: "flex", justifyContent: "center", paddingTop: theme.spacing(16) }} >
                             {t("Contact")}
                         </Typography>
 
@@ -457,31 +542,48 @@ export function Home() {
                                     <Typography>henri.lourenco@outlook.com</Typography>
                                 </ContactContent>
 
+                                <ContactContent sx={{ cursor: "default" }} >
+                                    <PhoneIcon fontSize="large"  />
+                                    <Typography>+55 13 99113-5761</Typography>
+                                </ContactContent>
+
                             </Box>
 
-                            <Box sx={{ display: 'flex', justifyContent: "center", alignItems: "center", flexDirection: "column"}} >
+                            <Box sx={{ display: 'flex', justifyContent: "center", alignItems: "center", flexDirection: "column", textAlign: "center" }} >
                                 <Typography variant="h4" >
                                     {t("Contact me")}
                                 </Typography>
                                 <Typography variant="h2" sx={{ color: "primary.main", fontWeight: "bold" }} >
                                     Let's work together
-                                <Typography variant="h2" component="span" sx={{ color: "primary.contrastText", fontWeight: "bold" }} >
-                                    !
+                                    <Typography variant="h2" component="span" sx={{ color: "primary.contrastText", fontWeight: "bold" }} >
+                                        !
+                                    </Typography>
                                 </Typography>
-                            </Typography>
                             </Box>
                         </Box>
                     </Contact>
                 </Element>
 
-            </Container>
+                <Divider sx={{ borderColor: theme.palette.secondary.contrastText }} />
 
-            <Footer sx={{ display: 'flex', justifyContent: 'center', height: theme.spacing(10), alignItems: 'center', backgroundColor: theme.palette.secondary.light}} >
-                <Typography variant="body2" >
-                    Designed and developed by Henrique Lourenço
+            </Container>
+            
+            <Footer sx={{ }} >
+                <Typography variant="body2" sx={{ fontSize: "0.75rem" }} >
+                    Web illustrations by Storyset
                 </Typography>
+                <Typography variant="body2" sx={{ fontSize: "0.75rem" }} >
+                    |
+                </Typography>
+                <Typography variant="body2" sx={{ fontSize: "0.75rem" }} >
+                    Design by Henrique Lourenço
+                </Typography>
+                    
             </Footer>
+
         </>
 
     )
 }
+
+                                    

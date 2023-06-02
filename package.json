@@ -7,7 +7,8 @@
     "dev": "vite --host",
     "build": "tsc && vite build",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "dist": "git add dist -f && git commit -m 'Update' && git subtree push --prefix dist origin gh-pages"
   },
   "dependencies": {
     "@emotion/react": "^11.11.0",

@@ -14,7 +14,7 @@ export const NavBar = styled(Toolbar)(({theme}) => ({
         color: theme.palette.primary.contrastText,
     },
 
-    [mq[0]]: {
+    [mq[2]]: {
         display: "none",
     }
 }))
@@ -29,7 +29,7 @@ export const MobileNavBar = styled(Toolbar)(({theme}) => ({
         color: theme.palette.primary.contrastText,
     },
 
-    "@media (min-width: 576px)": {
+    "@media (min-width: 993px)": {
         display: "none",
     }
 }))
@@ -42,17 +42,46 @@ export const MainContent = styled(Box)(({theme}) => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
-    height: "95vh",
+    marginTop: theme.spacing(8),
+    height: "90vh",
     color: theme.palette.primary.contrastText,
+
+    [mq[2]]: {
+        flexDirection: "row",
+        gap: theme.spacing(2),
+        height: theme.spacing(100),
+
+        ">div:last-child": {
+            textAlign: "center",
+        }
+    },
+
+    [mq[1]]: {
+        flexDirection: "column",
+        justifyContent: "center",
+        gap: theme.spacing(0),
+
+        ">div:last-child": {
+            textAlign: "center",
+            
+            "img": {
+                width: "80%",
+            }
+        }
+    },
 
     [mq[0]]: {
         flexDirection: "column",
         justifyContent: "center",
-        height: "100vh",
+        gap: theme.spacing(4),
+        marginTop: theme.spacing(2),
 
         ">div:last-child": {
             textAlign: "center",
-
+            
+            "img": {
+                width: "80%",
+            }
         }
     }
 }))
@@ -74,14 +103,47 @@ export const AboutMe = styled(Box)(({theme}) => ({
         },
     },
 
-    [mq[0]]: {
-        flexDirection: "column",
+    [mq[2]]: {
+        flexDirection: "column-reverse",
+
+        fontSize: theme.spacing(2),
+   
+    },
+
+    [mq[1]]: {
+        flexDirection: "column-reverse",
+        fontSize: theme.spacing(2),
 
         "img": {
             display: "none",
         }
+    },
 
+    [mq[0]]: {
+        flexDirection: "column-reverse",
+        fontSize: theme.spacing(2),
+
+        "img": {
+            display: "none",
+        }
     }
+}))
+
+export const AboutMeText = styled(Typography)(({theme}) => ({
+
+    lineHeight: 2,
+
+    [mq[2]]: {
+        fontSize: theme.spacing(2),
+    },
+
+    [mq[1]]: {
+        fontSize: theme.spacing(2),
+    },
+
+    [mq[0]]: {
+        fontSize: theme.spacing(2),
+    },
 }))
 
 export const Skills = styled(Box)(({theme}) => ({
@@ -90,7 +152,7 @@ export const Skills = styled(Box)(({theme}) => ({
     justifyContent: "center",
     alignItems: "center",
 
-    paddingTop: theme.spacing(8),
+    paddingTop: theme.spacing(10),
 
     "div": {
         color: theme.palette.primary.contrastText,
@@ -101,7 +163,7 @@ export const Skills = styled(Box)(({theme}) => ({
         marginTop: theme.spacing(2),
     },
 
-    [mq[0]]: {
+    [mq[2]]: {
 
         "div": {
             flexWrap: "wrap",
@@ -128,25 +190,56 @@ export const SkillCard = styled("a")(({theme}) => ({
         transition: "0.2s",
     },
 
-    "span": {
-        marginTop: theme.spacing(1),
-        textAlign: "center",
-    },
+    [mq[2]]: {
+        width: theme.spacing(10),
+    }
+}))
 
-    [mq[0]]: {
+export const SkillTitle = styled(Typography)(({theme}) => ({
+
+    marginTop: theme.spacing(1),
+    display: "flex",
+    textAlign: "center",
+    justifyContent: "center",
+
+    [mq[2]]: {
         width: theme.spacing(8),
     }
 }))
 
-export const Portfolio = styled(Box)(() => ({
+export const Portfolio = styled(Box)(({theme}) => ({
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    color: "white",
+    color: theme.palette.primary.contrastText,
+
+    "@media (max-width: 993px)": {
+        display: "none",
+    }
 }))
 
 export const PortfolioGrid = styled(Grid)(({theme}) => ({
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "flex-end",
+    backgroundColor: theme.palette.secondary.light,
+}))
+
+export const MobilePortfolio = styled(Box)(({theme}) => ({
+    display: "none",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    color: theme.palette.primary.contrastText,
+
+    [mq[2]]: {
+        display: "flex",
+    },
+}))
+
+export const MobilePortfolioGrid = styled(Grid)(({theme}) => ({
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
@@ -164,19 +257,24 @@ export const ProjectCard = styled(Card)(({theme}) => ({
 
 export const Contact = styled(Box)(({theme}) => ({
     color: theme.palette.primary.contrastText,
-    paddingTop: theme.spacing(16),
-    marginBottom: theme.spacing(26),
 
-    [mq[0]]: {
+    "div": {
+        height: theme.spacing(82),
+    },
+
+
+    [mq[2]]: {
+
         
-        ">div": {
+        "div": {
+            height: theme.spacing(60),
             flexDirection: "column-reverse",
             alignItems: "center",
-            gap: theme.spacing(10),
+            justifyContent: "center",
 
             "div": {
+                height: "100%",
                 alignItems: "center",
-                textAlign: "center",
             }
         }
     }
@@ -197,10 +295,6 @@ export const ContactContent = styled("a")(({theme}) => ({
     }
 }))
 
-export const Footer = styled(Box)(({theme}) => ({
-    color: theme.palette.primary.contrastText,
-}))
-
 export const NavBorder = styled("span")<{left : number, width : number}>(({theme, left, width}) => ({
     backgroundColor: theme.palette.primary.contrastText,
     border: "1px solid",
@@ -211,4 +305,19 @@ export const NavBorder = styled("span")<{left : number, width : number}>(({theme
     left: left,
     bottom: "0",
     transition: "0.3s",
+}))
+
+export const Footer = styled(Box)(({theme}) => ({
+    color: theme.palette.primary.contrastText,
+    backgroundColor: theme.palette.secondary.main,
+    display: 'flex',
+    justifyContent: 'center',
+    height: theme.spacing(14),
+    alignItems: 'center',
+    gap: theme.spacing(1),
+    
+
+    [mq[2]]: {
+        height: theme.spacing(10),
+    }
 }))
