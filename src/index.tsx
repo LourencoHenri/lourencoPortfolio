@@ -75,7 +75,7 @@ export function Home() {
             name: "Feed",
             description: "Implements a feed system, allowing the display and sharing of content such as posts and comments in an organized and interactive manner.",
             gitHubUrl: "https://github.com/LourencoHenri/feed",
-            siteUrl: "https://github.com/LourencoHenri/feed",
+            siteUrl: "https://lourencohenri.github.io/feed/",
             image: "https://img.freepik.com/fotos-gratis/computador-laptop-cinza-ligado_400718-47.jpg?w=1390&t=st=1684722782~exp=1684723382~hmac=a272128d1cea39a87a6a828d5adf4a3e423341028b2b972dd6d30cef041da769",
         },
         {
@@ -83,7 +83,7 @@ export function Home() {
             name: "ToDo List",
             description: "Task list application, allowing users to create, organize, and manage their tasks efficiently and conveniently.",
             gitHubUrl: "https://github.com/LourencoHenri/toDoList",
-            siteUrl: "https://github.com/LourencoHenri/toDoList",
+            siteUrl: "https://lourencohenri.github.io/toDoList/",
             image: "https://img.freepik.com/fotos-gratis/fundo-de-programacao-com-html_23-2150038863.jpg?size=626&ext=jpg&ga=GA1.2.1049139390.1684335736&semt=sph",
         },
         {
@@ -91,7 +91,7 @@ export function Home() {
             name: "Shop",
             description: "The project encompasses everything from the user interface to order processing and payments, providing a comprehensive solution for the online shopping experience.",
             gitHubUrl: "https://github.com/LourencoHenri/Shop",
-            siteUrl: "https://github.com/LourencoHenri/Shop",
+            siteUrl: "https://shop-bice-theta.vercel.app/",
             image: "https://img.freepik.com/fotos-gratis/plano-de-fundo-de-programacao-com-pessoa-trabalhando-com-codigos-no-computador_23-2150010125.jpg?w=1390&t=st=1684722821~exp=1684723421~hmac=4fbedd7d45fc5efd3d695757896b8da9538913d8ad67878f02532085a12fca68",
         },
         {

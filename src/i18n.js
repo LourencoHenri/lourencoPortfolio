@@ -89,7 +89,7 @@ const resources = {
         "I'm Henrique Lourenço": "Sou Henrique Lourenço",
         "Web Developer": "Desenvolvedor Web",
         "me": "mim",
-        "About me": "Meu nome é Henrique Lourenço. Sou desenvolvedor web baseado em Santos, Brasil. Sou muito apaixonado e dedicado ao meu trabalho. Gosto do estilo de aprendizado contínuo, sempre busco melhorar e adquirir conhecimento. Com aproximadamente 2 anos de experiência como desenvolvedor web, adquiri as habilidades necessárias para construir sites excelentes e de alta qualidade.",
+        "About me": "Meu nome é Henrique Lourenço. Sou desenvolvedor web e moro em Santos, Brasil. Sou apaixonado e dedicado ao meu trabalho. Gosto do estilo de aprendizado contínuo, sempre busco melhorar e adquirir conhecimento. Com aproximadamente 2 anos de experiência como desenvolvedor web, adquiri as habilidades necessárias para construir sites excelentes e de alta qualidade.",
         "Download CV": "Baixar CV",
         "My": "Minhas",
         "Frameworks": "Frameworks",
