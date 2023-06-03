@@ -59,7 +59,7 @@ export function Home() {
             name: "Coffee Shop",
             description: "Sales system of a cafeteria. Allows for order control, providing an efficient solution for operation and administration.",
             gitHubUrl: "https://github.com/LourencoHenri/coffeeShop",
-            siteUrl: "https://github.com/LourencoHenri/coffeeShop",
+            siteUrl: "",
             image: "https://img.freepik.com/fotos-gratis/fundo-de-armazenamento-em-nuvem-remixado-do-dominio-publico-pela-nasa_53876-104240.jpg?w=1390&t=st=1684722928~exp=1684723528~hmac=65d58cea32c3485f3fb2a0c59247290c29e6318a1945851dd8b8739441750006",
         },
         {
@@ -67,7 +67,7 @@ export function Home() {
             name: "Pomodoro Timer",
             description: "Pomodoro Timer application that assists in time management and productivity enhancement, following the Pomodoro technique of work and break cycles.",
             gitHubUrl: "https://github.com/LourencoHenri/pomodoroTimer",
-            siteUrl: "https://github.com/LourencoHenri/pomodoroTimer",
+            siteUrl: "",
             image: "https://img.freepik.com/vetores-gratis/fundo-de-tecnologia-de-rede-5g-com-linha-digital-azul_53876-119505.jpg?size=626&ext=jpg&ga=GA1.1.1049139390.1684335736&semt=sph",
         },
         {
@@ -99,7 +99,7 @@ export function Home() {
             name: "Calculator",
             description: "The project offers an intuitive and user-friendly interface for performing both basic and complex operations, including standard and scientific modes.",
             gitHubUrl: "https://github.com/LourencoHenri/calculator",
-            siteUrl: "https://github.com/LourencoHenri/calculator",
+            siteUrl: "",
             image: "https://img.freepik.com/fotos-gratis/programador-profissional-trabalhando-ate-tarde-no-escritorio-escuro_1098-18705.jpg?w=1390&t=st=1684722836~exp=1684723436~hmac=c3d5dbb990c23f0116b61052573978690abd97b7430deb83b04bef66b092b5a7",
         },
     ]
@@ -455,7 +455,19 @@ export function Home() {
                                         </Typography>
                                     </CardContent>
                                     <CardActions sx={{ display: "flex", justifyContent: "space-between", width: "100%",}} >
-                                        <Button href={project.siteUrl} target="_blank" size="small" sx={{ color: "primary.contrastText", "&:hover": { color: "primary.main" } }} >{t("Access")}</Button>
+                                        {!!project.siteUrl ?
+                                        <Button href={project.siteUrl} target="_blank" size="small"
+                                        sx={{ color: "primary.contrastText", "&:hover": { color: "primary.main" } }}
+                                        >
+                                            {t("Access")}
+                                        </Button>
+                                        :
+                                        <Button variant="outlined" disabled href={project.siteUrl} target="_blank" size="small"
+                                        sx={{ opacity: 0,  color: "primary.contrastText", "&:hover": { color: "primary.main" } }}
+                                        >
+                                            {t("Access")}
+                                        </Button>
+                                        }
                                         <IconButton href={project.siteUrl} target="_blank" sx={{ color: "primary.contrastText", transition: "0.4s", "&:hover": { color: "primary.main" } }} >
                                             <SiGithub />
                                         </IconButton>
