@@ -557,7 +557,7 @@ export function Home() {
 							</SkillCard>
 							<SkillCard>
 								<SiNextdotjs size={48} />
-								<SkillTitle>Next</SkillTitle>
+								<SkillTitle>Next.js</SkillTitle>
 							</SkillCard>
 						</Box>
 
