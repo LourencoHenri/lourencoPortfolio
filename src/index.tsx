@@ -78,8 +78,6 @@ import {
 } from "./styles";
 
 import { useTranslation } from "react-i18next";
-
-// INTERFACE
 interface PortfolioProps {
 	id: number;
 	name: string;
