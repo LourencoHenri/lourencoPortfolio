@@ -21,7 +21,7 @@ import english from "../src/assets/englishIcon.png";
 import spanish from "../src/assets/spanishIcon.png";
 import portuguese from "../src/assets/portugueseIcon.png";
 
-import curriculumHenriqueLourenco from "../src/assets/curriculumHenriqueLourenco.pdf";
+import curriculumLourenco from "../src/assets/curriculumLourenco.pdf";
 
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
@@ -520,7 +520,7 @@ export function Home() {
 								}}
 							>
 								<Button
-									href={curriculumHenriqueLourenco}
+									href={curriculumLourenco}
 									download
 									variant="outlined"
 									size="small"
