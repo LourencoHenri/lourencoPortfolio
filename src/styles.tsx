@@ -17,6 +17,7 @@ export const NavBar = styled(Toolbar)(({theme}) => ({
     [mq[2]]: {
         display: "none",
     }
+    
 }))
 
 export const MobileNavBar = styled(Toolbar)(({theme}) => ({
