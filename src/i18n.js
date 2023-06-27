@@ -37,10 +37,6 @@ const resources = {
       "Calculator Description": "The project offers an intuitive and user-friendly interface for performing both basic and complex operations, including standard and scientific modes.",
       "Contact": "Contact",
       "Contact me": "Contact me",
-    //   "descriptions": { 
-    //     coffeeShop: "The project offers an intuitive and user-friendly interface for performing both basic and",
-
-    //    }
     }
   },
   es: {
