@@ -96,30 +96,40 @@ interface LanguagesProps {
 export function Home() {
 	const portfolio: PortfolioProps[] = [
 		{
-			id: 1,
-			name: "Coffee Shop",
+			id: 8,
+			name: "Weather App",
 			description:
-				"Sales system of a cafeteria. Allows for order control, providing an efficient solution for operation and administration.",
-			gitHubUrl: "https://github.com/LourencoHenri/coffeeShop",
-			siteUrl: "",
+				"The project is a web application that provides real-time weather information, with an intuitive and responsive interface.",
+			gitHubUrl: "https://github.com/LourencoHenri/weatherApp",
+			siteUrl: "https://weather-app-lourencohenri.vercel.app/",
 			image:
-				"https://img.freepik.com/fotos-gratis/fundo-de-armazenamento-em-nuvem-remixado-do-dominio-publico-pela-nasa_53876-104240.jpg?w=1390&t=st=1684722928~exp=1684723528~hmac=65d58cea32c3485f3fb2a0c59247290c29e6318a1945851dd8b8739441750006",
+				"https://images.unsplash.com/photo-1522252234503-e356532cafd5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1025&q=80",
 		},
 		{
 			id: 2,
 			name: "Pomodoro Timer",
 			description:
-				"Pomodoro Timer application that assists in time management and productivity enhancement, following the Pomodoro technique of work and break cycles.",
+				"Pomodoro Timer application that assists in time management and productivity enhancement.",
 			gitHubUrl: "https://github.com/LourencoHenri/pomodoroTimer",
-			siteUrl: "",
+			siteUrl: "https://lourencohenri.github.io/pomodoroTimer/",
 			image:
 				"https://img.freepik.com/vetores-gratis/fundo-de-tecnologia-de-rede-5g-com-linha-digital-azul_53876-119505.jpg?size=626&ext=jpg&ga=GA1.1.1049139390.1684335736&semt=sph",
+		},
+		{
+			id: 7,
+			name: "Toggle Theme - MUI",
+			description:
+				"The Toggle Theme MUI project allows you to switch between light and dark themes in a web application.",
+			gitHubUrl: "https://github.com/LourencoHenri/toggleThemeMui",
+			siteUrl: "https://toggle-theme-mui-lourencohenri.vercel.app/",
+			image:
+				"https://images.unsplash.com/photo-1619410283995-43d9134e7656?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
 		},
 		{
 			id: 3,
 			name: "Feed",
 			description:
-				"Implements a feed system, allowing the display and sharing of content such as posts and comments in an organized and interactive manner.",
+				"Simulates a feed system, allowing the display of organized and interactive posts and comments.",
 			gitHubUrl: "https://github.com/LourencoHenri/feed",
 			siteUrl: "https://lourencohenri.github.io/feed/",
 			image:
@@ -136,16 +146,6 @@ export function Home() {
 				"https://img.freepik.com/fotos-gratis/fundo-de-programacao-com-html_23-2150038863.jpg?size=626&ext=jpg&ga=GA1.2.1049139390.1684335736&semt=sph",
 		},
 		{
-			id: 5,
-			name: "Shop",
-			description:
-				"The project encompasses everything from the user interface to order processing and payments, providing a comprehensive solution for the online shopping experience.",
-			gitHubUrl: "https://github.com/LourencoHenri/Shop",
-			siteUrl: "https://shop-bice-theta.vercel.app/",
-			image:
-				"https://img.freepik.com/fotos-gratis/plano-de-fundo-de-programacao-com-pessoa-trabalhando-com-codigos-no-computador_23-2150010125.jpg?w=1390&t=st=1684722821~exp=1684723421~hmac=4fbedd7d45fc5efd3d695757896b8da9538913d8ad67878f02532085a12fca68",
-		},
-		{
 			id: 6,
 			name: "Calculator",
 			description:
@@ -154,6 +154,26 @@ export function Home() {
 			siteUrl: "",
 			image:
 				"https://img.freepik.com/fotos-gratis/programador-profissional-trabalhando-ate-tarde-no-escritorio-escuro_1098-18705.jpg?w=1390&t=st=1684722836~exp=1684723436~hmac=c3d5dbb990c23f0116b61052573978690abd97b7430deb83b04bef66b092b5a7",
+		},
+		{
+			id: 5,
+			name: "Shop",
+			description:
+				"The project encompasses everything from the user interface to order processing and payments, providing a comprehensive solution for the online shopping experience.",
+			gitHubUrl: "https://github.com/LourencoHenri/Shop",
+			siteUrl: "",
+			image:
+				"https://img.freepik.com/fotos-gratis/plano-de-fundo-de-programacao-com-pessoa-trabalhando-com-codigos-no-computador_23-2150010125.jpg?w=1390&t=st=1684722821~exp=1684723421~hmac=4fbedd7d45fc5efd3d695757896b8da9538913d8ad67878f02532085a12fca68",
+		},
+		{
+			id: 1,
+			name: "Coffee Shop",
+			description:
+				"Sales system of a cafeteria. Allows for order control, providing an efficient solution for operation and administration.",
+			gitHubUrl: "https://github.com/LourencoHenri/coffeeShop",
+			siteUrl: "",
+			image:
+				"https://img.freepik.com/fotos-gratis/fundo-de-armazenamento-em-nuvem-remixado-do-dominio-publico-pela-nasa_53876-104240.jpg?w=1390&t=st=1684722928~exp=1684723528~hmac=65d58cea32c3485f3fb2a0c59247290c29e6318a1945851dd8b8739441750006",
 		},
 	];
 
@@ -782,7 +802,10 @@ export function Home() {
 											<Typography
 												variant="body2"
 												color="primary.contrastText"
-												sx={{ overflow: "auto", height: "80%" }}
+												sx={{
+													overflow: "auto",
+													height: "80%",
+												}}
 											>
 												{t(`${project.name} Description`)}
 											</Typography>

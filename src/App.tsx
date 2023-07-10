@@ -1,8 +1,6 @@
-import "./global.css"
+import "./global.css";
 import { Home } from ".";
 
 export function App() {
-  return (
-    <Home /> 
-  )
+	return <Home />;
 }

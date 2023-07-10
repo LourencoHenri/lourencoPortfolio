@@ -35,8 +35,10 @@ const resources = {
       "ToDo List Description": "Task list application, allowing users to create, organize, and manage their tasks efficiently and conveniently.",
       "Shop Description": "The project encompasses everything from the user interface to order processing and payments, providing a comprehensive solution for the online shopping experience.",
       "Calculator Description": "The project offers an intuitive and user-friendly interface for performing both basic and complex operations, including standard and scientific modes.",
+      "Toggle Theme - MUI Description": "The project offers an intuitive and user-friendly interface for performing both basic and complex operations, including standard and scientific modes.",
+      "Weather App Description": "The project offers an intuitive and user-friendly interface for performing both basic and complex operations, including standard and scientific modes.",
       "Contact": "Contact",
-      "Contact me": "Contact me",
+      "Contact me": "Contact me",      
     }
   },
   es: {
@@ -69,6 +71,8 @@ const resources = {
         "ToDo List Description": "Aplicación de lista de tareas, permitiendo a los usuarios crear, organizar y gestionar sus tareas de manera eficiente y conveniente.",
         "Shop Description": "El proyecto abarca desde la interfaz de usuario hasta el procesamiento de pedidos y pagos, proporcionando una solución integral para la experiencia de compra en línea.",
         "Calculator Description": "El proyecto ofrece una interfaz intuitiva y fácil de usar para realizar operaciones básicas y complejas, incluyendo modos estándar y científico.",
+        "Toggle Theme - MUI Description": "El proyecto Toggle Theme MUI te permite cambiar entre temas claros y oscuros en una aplicación web.",
+        "Weather App Description": "El proyecto es una aplicación web que proporciona información meteorológica en tiempo real, con una interfaz intuitiva y receptiva.",
         "Contact": "Contacto",
         "Contact me": "Contáctame"
 
@@ -104,6 +108,8 @@ const resources = {
         "ToDo List Description": "Aplicativo de lista de tarefas, permitindo que os usuários criem, organizem e gerenciem suas tarefas de forma eficiente e conveniente.",
         "Shop Description": "O projeto abrange desde a interface do usuário até o processamento de pedidos e pagamentos, proporcionando uma solução abrangente para a experiência de compra online.",
         "Calculator Description": "O projeto oferece uma interface intuitiva e fácil de usar para realizar operações básicas e complexas, incluindo modos padrão e científico.",
+        "Toggle Theme - MUI Description": "O projeto Toggle Theme MUI permite alternar entre temas claros e escuros em uma aplicação web.",
+        "Weather App Description": "O projeto é uma aplicação web que fornece informações meteorológicas em tempo real, com uma interface intuitiva e responsiva.", 
         "Contact": "Contato",
         "Contact me": "Entre em contato comigo"
     }
